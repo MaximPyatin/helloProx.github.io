@@ -12,11 +12,15 @@
         <img class="animation_hello" src="1239491879-ezgif.com-gif-maker.gif" alt="">
         <h4 class="title">Добро пожаловать в <span>VPNProx</span></h4>
         <P class="sub_title">Это быстрый и надежный VPN-сервис, который поможет вам обойти блокировки и ограничения в интернете.  </P>
-        <button class="button">Погнали</button>
+        <button class="button" onclick=close()>Погнали</button>
     </main>
     <script>
         const tg = window.Telegram.WebApp;
         tg.expand();
+
+        function close(){
+            tg.hide()
+        }
     </script>
 </body>
 </html>
