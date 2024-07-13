@@ -61,7 +61,7 @@ body {
     color: #3B3A48;
 }
 
-.main_1, .main_2, .main_3, .main_4 {
+.main_1, .main_2, .main_3, .main_4, .main_5 {
     position: absolute;
     top: 0;
     left: 100%;
@@ -70,11 +70,11 @@ body {
     transition: left 0.5s;
 }
 
-.main_1.active, .main_2.active, .main_3.active, .main_4.active{
+.main_1.active, .main_2.active, .main_3.active, .main_4.active, .main_5.active{
     left: 0;
 }
 
-.main_1.exit, .main_2.exit, .main_3.exit, .main_4.exit {
+.main_1.exit, .main_2.exit, .main_3.exit, .main_4.exit, .main_5.exit{
     left: -100%;
 }
 

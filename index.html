@@ -8,20 +8,20 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <main class="main_1 active"   style="display: none;">
+    <main class="main_1 active">
         <img class="animation_hello" src="1239491879-ezgif.com-gif-maker.gif" alt="">
         <h3 class="title">Добро пожаловать в <span>VPNProx</span></h3>
         <p class="sub_title">Это быстрый и надежный VPN-сервис, который поможет вам обойти блокировки и ограничения в интернете.  </p>
         <button class="button" onclick="next(1)">Погнали</button>
     </main>
 
-    <main class="main_2"   style="display: none;">
+    <main class="main_2">
         <img class="animation_hello" src="686088877-ezgif.com-gif-maker.gif" alt="">
         <h3 class="title">Используйте любимые соц.сети <br><span>Без ограничений</span></h3>
         <button class="button" onclick="next(2)">Продолжить</button>
     </main>
 
-    <main class="main_3"   style="display: none;">
+    <main class="main_3">
         <img class="animation_hello" src="599308511-ezgif.com-gif-maker.gif" alt="">
         <h3 class="title">Дарю тебе<span> 10 дней</span>!</h3>
         <p class="sub_title">Пора попробовать наш VPN в действии</p>
@@ -31,7 +31,7 @@
     <main class="main_4"  style="display: none;">
         <img class="animation_hello" src="chpic.su_-_DMJDuckX2_001-ezgif.com-gif-maker.gif" alt="">
         <h3 class="title">Какое у вас<span> устройство</span>?</h3>
-        <button class="type_system">IOS</button>
+        <button class="type_system" onclick="next(4)">IOS</button>
         <button class="type_system">Adnroid</button>
         <button class="type_system">Windows</button>
         <button class="type_system">MacOC</button>
@@ -42,8 +42,8 @@
         <h6 class="step">Шаг 1. Скачайте мобильное приложение</h6>
         <a  class="button_set active">Скачать приложение</a>
         <h6 class="step">Шаг 2. Добавьте конфигурацию</h6>
-        <a class="button_set disabled" href="streisand://connect">Добавить конфигурацию</a>
-        <button class="button disabled" onclick="nextStep()">Готово</button>
+        <a class="button_set" href="streisand://connect">Добавить конфигурацию</a>
+        <button class="button " onclick="nextStep()">Готово</button>
     </main>
 
     <script>
@@ -82,6 +82,22 @@
             }
         });
 
+
+        function next(current) {
+            const currentMain = document.querySelector(`.main_${current}`);
+            const nextMain = document.querySelector(`.main_${current + 1}`);
+
+            currentMain.classList.add('exit');
+            currentMain.classList.remove('active');
+
+            nextMain.classList.add('active');
+
+            setTimeout(() => {
+                currentMain.style.display = 'none';
+                nextMain.style.display = 'block';
+                currentMain.classList.remove('exit');
+            }, 500); // Match this duration with your CSS transition time
+        }
         function close() {
             tg.hide();
         }
