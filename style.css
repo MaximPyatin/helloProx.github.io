@@ -1,10 +1,10 @@
-
-body{
+body {
     margin: 0;
     background-color: #3B3A48;
+    overflow: hidden;
 }
 
-.animation_hello{
+.animation_hello {
     display: flex;
     margin: 0 auto;
     height: 15rem;
@@ -12,7 +12,7 @@ body{
     margin-top: 2rem;
 }
 
-.title{
+.title {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 2.125rem;
@@ -20,12 +20,14 @@ body{
     letter-spacing: 0.00735em;
     text-align: center;
     margin-bottom: 1rem;
-    color:#fff
+    color: #fff;
 }
-.title span{
+
+.title span {
     color: #2FC786;
 }
-.sub_title{
+
+.sub_title {
     margin: 0px;
     font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: 400;
@@ -33,10 +35,10 @@ body{
     line-height: 1.5;
     letter-spacing: 0.00938em;
     text-align: center;
-    color:#fff
+    color: #fff;
 }
 
-.button{
+.button {
     font-family: Roboto, Helvetica, Arial, sans-serif;
     position: absolute;
     bottom: 2.2rem;
@@ -50,10 +52,104 @@ body{
     height: 3.5rem;
     font-size: 1rem;
     text-transform: uppercase;
-    
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
 }
 
-.button:active{
+.button:active {
     background: #DEF5F0;
     color: #3B3A48;
+}
+
+.main_1, .main_2, .main_3, .main_4 {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    transition: left 0.5s;
+}
+
+.main_1.active, .main_2.active, .main_3.active, .main_4.active{
+    left: 0;
+}
+
+.main_1.exit, .main_2.exit, .main_3.exit, .main_4.exit {
+    left: -100%;
+}
+
+
+.type_system{
+    position: relative;
+    left: 45%;
+    transform: translateX(-50%);
+    border: none;
+    font-size: .9rem;
+    width: 50%;
+    margin: 1.3rem;
+    height: 3rem;
+    background-color: #DEF5F0;
+    border-radius: .4rem;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.type_system:active{
+    background: #2FC786;
+    color: #fff;
+}
+
+.go_Settings{
+    margin: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    text-align: center;
+    font-weight: 700;
+    color: #fff;
+    font-weight: 100;
+    margin-bottom: 2rem;
+}
+
+.step{
+    margin-top: 2.3rem;
+    margin-bottom: .8rem;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    text-align: left;
+    font-weight: 700;
+    color: #fff;
+    font-weight: 100;
+    margin-left: .5rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.button_set{
+    display: block;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    border: none;
+    width: 55%;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    background-color: #8df1c6;
+    border-radius: .4rem;
+    color: #000;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1rem 2rem;
+}
+
+.button:active, .button_set:active {
+    background: #DEF5F0;
+    color: #3B3A48;
+}
+
+.button.disabled, .button_set.disabled {
+    background: #757575;
+    cursor: not-allowed;
 }

@@ -8,18 +8,82 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
-    <main>
+    <main class="main_1 active"   style="display: none;">
         <img class="animation_hello" src="1239491879-ezgif.com-gif-maker.gif" alt="">
-        <h4 class="title">Добро пожаловать в <span>VPNProx</span></h4>
-        <P class="sub_title">Это быстрый и надежный VPN-сервис, который поможет вам обойти блокировки и ограничения в интернете.  </P>
-        <button class="button" onclick=close()>Погнали</button>
+        <h3 class="title">Добро пожаловать в <span>VPNProx</span></h3>
+        <p class="sub_title">Это быстрый и надежный VPN-сервис, который поможет вам обойти блокировки и ограничения в интернете.  </p>
+        <button class="button" onclick="next(1)">Погнали</button>
     </main>
+
+    <main class="main_2"   style="display: none;">
+        <img class="animation_hello" src="686088877-ezgif.com-gif-maker.gif" alt="">
+        <h3 class="title">Используйте любимые соц.сети <br><span>Без ограничений</span></h3>
+        <button class="button" onclick="next(2)">Продолжить</button>
+    </main>
+
+    <main class="main_3"   style="display: none;">
+        <img class="animation_hello" src="599308511-ezgif.com-gif-maker.gif" alt="">
+        <h3 class="title">Дарю тебе<span> 10 дней</span>!</h3>
+        <p class="sub_title">Пора попробовать наш VPN в действии</p>
+        <button class="button" onclick="next(3)">🎁 Забрать 🎁</button>
+    </main>
+
+    <main class="main_4"  style="display: none;">
+        <img class="animation_hello" src="chpic.su_-_DMJDuckX2_001-ezgif.com-gif-maker.gif" alt="">
+        <h3 class="title">Какое у вас<span> устройство</span>?</h3>
+        <button class="type_system">IOS</button>
+        <button class="type_system">Adnroid</button>
+        <button class="type_system">Windows</button>
+        <button class="type_system">MacOC</button>
+    </main>
+    <main class="main_5">
+        <img class="animation_hello" src="chpic.su_-_DMJDuckX2_004-ezgif.com-gif-maker.gif" alt="">
+        <h5 class="go_Settings">Приступим к настройке!</h5>
+        <h6 class="step">Шаг 1. Скачайте мобильное приложение</h6>
+        <a  class="button_set active">Скачать приложение</a>
+        <h6 class="step">Шаг 2. Добавьте конфигурацию</h6>
+        <a class="button_set disabled" href="streisand://connect">Добавить конфигурацию</a>
+        <button class="button disabled" onclick="nextStep()">Готово</button>
+    </main>
+
     <script>
         const tg = window.Telegram.WebApp;
         tg.expand();
 
-        function close(){
-            tg.hide()
+        function nextStep() {
+            const buttons = document.querySelectorAll('.button_set, .button');
+            buttons.forEach((button, index) => {
+                if (button.classList.contains('active')) {
+                    button.classList.remove('active');
+                    button.classList.add('disabled');
+                    if (buttons[index + 1]) {
+                        buttons[index + 1].classList.remove('disabled');
+                        buttons[index + 1].classList.add('active');
+                    }
+                }
+            });
+        }
+
+        document.querySelectorAll('.button_set').forEach(button => {
+            button.addEventListener('click', function(event) {
+                if (button.classList.contains('disabled')) {
+                    event.preventDefault();
+                } else {
+                    nextStep();
+                }
+            });
+        });
+
+        document.querySelector('.button').addEventListener('click', function() {
+            if (this.classList.contains('disabled')) {
+                return;
+            } else {
+                nextStep();
+            }
+        });
+
+        function close() {
+            tg.hide();
         }
     </script>
 </body>
